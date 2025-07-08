@@ -5,12 +5,8 @@ import io
 from typing import Dict, Any
 
 # Google TTS만 사용
-try:
-    from gtts import gTTS
-    GTTS_AVAILABLE = True
-except ImportError:
-    print("⚠️ gtts가 설치되지 않음")
-    GTTS_AVAILABLE = False
+from gtts import gTTS
+
 
 logger = logging.getLogger(__name__)
 
@@ -22,12 +18,7 @@ class TTSService:
         """TTS 서비스 초기화"""
         logger.info("Google TTS 서비스 초기화 중...")
         
-        if not GTTS_AVAILABLE:
-            logger.error("❌ Google TTS가 설치되지 않았습니다.")
-            logger.info("pip install gtts 명령어로 설치하세요")
-            raise ImportError("gtts가 설치되지 않음")
         
-        # Google TTS는 별도 초기화 불필요 (온라인 서비스)
         self.is_initialized = True
         logger.info("✅ Google TTS 서비스 초기화 완료!")
     
@@ -90,10 +81,8 @@ async def test_tts_service():
     
     # 테스트 텍스트들
     test_texts = [
-        "안녕하세요!",
+        "안녕하세요 ai 고객센터입니다.",
         "고객센터에 연결해드리겠습니다.",
-        "OTP 번호를 확인해주세요.",
-        "공인인증서를 갱신해주시기 바랍니다."
     ]
     
     for i, test_text in enumerate(test_texts, 1):
