@@ -160,11 +160,10 @@ async def test_stt_service():
     stt = STTService()
     await stt.initialize()
     
-    # 테스트 오디오 파일이 있다면
-    # result1 = await stt.transcribe_whisper("test.wav")
-    # result2 = await stt.transcribe_korean("test.wav")
-    # print("Whisper:", result1)
-    # print("Korean STT:", result2)
+    result1 = await stt.transcribe_whisper("test.wav")
+    result2 = await stt.transcribe_korean("test.wav")
+    print("Whisper:", result1)
+    print("Korean STT:", result2)
     
     await stt.cleanup()
 
