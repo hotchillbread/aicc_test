@@ -205,7 +205,7 @@ class LLMService:
             result = self.korean_llm(
                 prompt,
                 max_new_tokens=200,
-                temperature=0.7,          
+                temperature=0.8,          
                 do_sample=True,
                 truncation=True
             )
@@ -279,7 +279,7 @@ async def test_llm_service():
     
     # 테스트 프롬프트들
     test_prompts = [
-        "고객 문의에 답변해주세요: 공인인증서가 만료되었습니다. 갱신 방법을 알려주세요. ",
+        " 공인인증서가 만료되었습니다. 갱신 방법을 알려주세요. ",
     ]
     
     for prompt in test_prompts:
